@@ -7,7 +7,7 @@ export default function Post({ source, frontMatter }) {
   
   return (
     <div>
-      <h1>{ frontMatter.title }</h1>
+      <h1 class="font-serif">{ frontMatter.title }</h1>
       { content }
     </div>
   )
