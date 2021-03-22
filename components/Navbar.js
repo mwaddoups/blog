@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Breadcrumbs({ slug, title}) {
+export default function Navbar({ slug, title}) {
     return (
         <nav className="bg-gray-200 p-3 rounded w-full mx-4">
             <ol className="flex text-gray-900">

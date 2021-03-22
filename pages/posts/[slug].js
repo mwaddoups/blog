@@ -2,7 +2,7 @@ import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
 import matter from 'gray-matter'
 import DefaultLayout from 'components/DefaultLayout';
-import Breadcrumbs from 'components/Breadcrumbs';
+import Navbar from 'components/Navbar';
 
 // These need to be closed tags (e.g. <p />)
 const components = {
@@ -13,7 +13,7 @@ export default function Post({ source, frontMatter }) {
   const content = hydrate(source, { components });
   return (
     <DefaultLayout title={frontMatter.title} description={frontMatter.title}>
-      <Breadcrumbs slug={frontMatter.slug} title={frontMatter.title}/>
+      <Navbar slug={frontMatter.slug} title={frontMatter.title}/>
       <div className="px-8 py-2">
         <h1 className="pb-4 text-2xl font-bold leading-normal text-gray-900 sm:text-3xl sm:truncate">{ frontMatter.title }</h1>
         { content }
