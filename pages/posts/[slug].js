@@ -2,19 +2,20 @@ import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
 import matter from 'gray-matter'
 import DefaultLayout from 'components/DefaultLayout';
+import Breadcrumbs from 'components/Breadcrumbs';
 
 // These need to be closed tags (e.g. <p />)
 const components = {
-  p: props => <p {...props} className="text-2xl" />,
+  p: props => <p {...props} className="pb-4 leading-normal text-gray-800" />,
 }
 
 export default function Post({ source, frontMatter }) {
   const content = hydrate(source, { components });
-  
   return (
     <DefaultLayout title={frontMatter.title} description={frontMatter.title}>
-      <div>
-        <h1 className="text-2xl font-bold leading-normal text-gray-900 sm:text-3xl sm:truncate">{ frontMatter.title }</h1>
+      <Breadcrumbs slug={frontMatter.slug} title={frontMatter.title}/>
+      <div className="px-8 py-2">
+        <h1 className="pb-4 text-2xl font-bold leading-normal text-gray-900 sm:text-3xl sm:truncate">{ frontMatter.title }</h1>
         { content }
       </div>
     </DefaultLayout>
@@ -27,6 +28,9 @@ export async function getStaticProps(context) {
 
   const { content, data } = matter(source.default);
   const mdxSource = await renderToString(content);
+
+  // Add slug to params
+  data.slug = slug;
 
   return { props: { source: mdxSource, frontMatter: data } };
 }
