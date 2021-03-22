@@ -1,15 +1,23 @@
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
 import matter from 'gray-matter'
+import DefaultLayout from 'components/DefaultLayout';
+
+// These need to be closed tags (e.g. <p />)
+const components = {
+  p: props => <p {...props} className="text-2xl" />,
+}
 
 export default function Post({ source, frontMatter }) {
-  const content = hydrate(source);
+  const content = hydrate(source, { components });
   
   return (
-    <div>
-      <h1 class="font-serif">{ frontMatter.title }</h1>
-      { content }
-    </div>
+    <DefaultLayout title={frontMatter.title} description={frontMatter.title}>
+      <div>
+        <h1 className="text-2xl font-bold leading-normal text-gray-900 sm:text-3xl sm:truncate">{ frontMatter.title }</h1>
+        { content }
+      </div>
+    </DefaultLayout>
   )
 }
 

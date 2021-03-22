@@ -7,7 +7,9 @@ export default function DefaultLayout(props) {
         <title>{props.title}</title>
         <meta name='description' content={props.description}/>
       </Head>
-      {props.children}
+      <div className="md:container md:mx-auto p-4">
+        {props.children}
+      </div>
     </main>
   )
 }
