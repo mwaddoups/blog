@@ -1,28 +1,38 @@
 ---
-title:  "Welcome to Jekyll!"
-date:   2021-03-22 19:07:11 +0000
-categories: jekyll update
+title: '3D Printer: Artillery Sidewinder X1 setup'
+date: 2021-03-11 19:07:11 +0000
+categories:
+- 3dprinting
+
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+After much deliberation, I finally decided today to enter the world of 3D printing. I had spent much of the recent lockdown tinkering with Arduino parts and working on projects, and I could clearly see the value in being able to create custom parts.
 
-Jekyll requires blog post files to be named according to the following format:
+My key motivations at this point were:
 
-`YEAR-MONTH-DAY-title.MARKUP`
+1. Finish a bluetooth speaker for which I had all the electronics, but none of the housing. I had designed a wooden box in CAD, but 3D printing would allow much more organic design.
+2. Create a modular low-pressure aeroponic system. I had made a basic one using a storage box and a hole saw, but am interested in designing a tower version.
+3. Be able to print custom hard-wearing clips for hiking gear or other tools I own that have broken parts.
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+I also figured I would learn a lot from the experience and gain a better understanding of what is possible and what problems still exist in the technology.
 
-Jekyll also offers powerful support for code snippets:
+### Purchasing
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+The first question is which printer to go for. A small part of me considered doing a self-build, but I could already feel another cost-spiralling project coming on if I took that on, so figured better to invest in an existing model.
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+The largest technological split is between FDM (plastic is fused from a nozzle working up) and SLA (stereo lithography, where the item is fused out of resin). SLA printers have higher resolution but require well-ventilated areas and are often more expensive and less common among hobbyists. I figured a better first attempt was an FDM printer.
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+The market is broadly split into:
+
+* Lower budget, chinese-made printers such as the Creality Ender or Artillery Genius (\~£150-£200).
+* Mid-budget chinese-made printers with larger build areas (the CR-10, the Sidewinder X1) (\~£250-£350).
+* High-budget (for hobbyists) and considered by most to be the best printer you can get, the Prusa i3 is a European-made printer. It's also £700.
+
+Whilst all printers work well, what you seem to be paying for is lower tolerances. The cheaper printers can arrive with warped beds, poor materials, cheaper parts and plastic parts that break. The Prusa models will just print out of the box.
+
+I initially considered the Prusa, but there was both a 4 week lead time and I also wanted something with a larger bed since I was wanting to build more "industrial" parts (rather than figurines). There is a huge modding community in these chinese printers, and many people have come up with "upgrades" (parts you can print) to improve or replace parts on the printer. I figured getting something that didn't work so well would teach me more about calibration, what can go wrong and what you can fix.
+
+In this search, I also found [this spreadsheet](https://docs.google.com/spreadsheets/d/1xEZq0ovtieAof78GG8L_DPWIoD0iHY69tpp_7Mo6ZKU/edit#gid=840841259) from the 3dp discord extremely helpful. This was what eventually led me to go for the Sidewinder X1. I won't pretend it was the most scientific choice - but essentially: I figured the larger build area wouldn't hurt, nobody seemed to have horrible things to say about them, and if I spent too much time agonizing over this choice I would never get one. 
+
+I also found it on Banggood with money off for £275 new and shipped in a few days. So that helped.
+
+### Early Setup
